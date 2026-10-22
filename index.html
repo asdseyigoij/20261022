@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#fff9e9" />
+    <title>生活小高手｜拖曳配對挑戰</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+TC:wght@500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="libraries/p5.min.js"></script>
+  </head>
+
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="生活小高手首頁">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>生活小高手</span>
+        </a>
+        <div class="progress" aria-live="polite">
+          <span class="progress-label">配對進度</span>
+          <span class="progress-count" id="progress-count">0 / 6</span>
+        </div>
+      </header>
+
+      <section class="intro" id="top" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>幼兒生活常識小挑戰</p>
+          <h1 id="page-title">生活小高手<span>出動！</span></h1>
+          <p class="intro-copy">看一看情境圖，把正確的生活好習慣送到它身邊。</p>
+        </div>
+        <div class="mascot" aria-hidden="true"><span>🦊</span><i>來挑戰！</i></div>
+      </section>
+
+      <section class="quiz-section" aria-labelledby="scene-heading">
+        <div class="section-heading">
+          <div class="section-title-wrap">
+            <span class="section-number">01</span>
+            <h2 id="scene-heading">找到好習慣</h2>
+          </div>
+          <span class="section-hint">每回合隨機抽 6 題，答案也會重新排序</span>
+        </div>
+        <div class="scene-grid" id="scene-grid" aria-label="六個生活情境配對區"></div>
+      </section>
+
+      <section class="answer-section" aria-labelledby="answer-heading">
+        <div class="section-heading answer-heading">
+          <div class="section-title-wrap">
+            <span class="section-number section-number-coral">02</span>
+            <h2 id="answer-heading">好習慣答案</h2>
+          </div>
+          <span class="section-hint">也可以先點答案，再點圖卡</span>
+        </div>
+        <div class="answer-grid" id="answer-grid" aria-label="六個可配對答案"></div>
+      </section>
+
+      <footer class="quiz-footer">
+        <p class="footer-note" id="footer-note" aria-live="polite">完成六個配對，就可以看看你的成績！</p>
+        <button class="submit-button" id="submit-button" type="button" disabled>
+          <span aria-hidden="true">✦</span>交卷看成績<span aria-hidden="true">→</span>
+        </button>
+      </footer>
+    </main>
+
+    <section class="result-modal" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+      <div class="result-panel">
+        <button class="close-button" id="close-result" type="button" aria-label="關閉成績">×</button>
+        <div class="result-emoji" id="result-emoji" aria-hidden="true">🎉</div>
+        <p class="result-kicker">生活小高手測驗結果</p>
+        <h2 id="result-title">太棒了！</h2>
+        <p class="result-score" id="result-score"></p>
+        <p class="result-message" id="result-message"></p>
+        <button class="replay-button" id="replay-button" type="button">再玩一次 <span aria-hidden="true">↻</span></button>
+      </div>
+    </section>
+
+    <script src="question-bank.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
